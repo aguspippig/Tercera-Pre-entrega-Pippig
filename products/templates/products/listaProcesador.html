@@ -1,0 +1,28 @@
+{% extends "products/base.html" %}
+{% block titulo %} Lista de Productos {% endblock titulo %}
+{% block contenido %}
+
+<section>
+  <div>
+  <h1 style='color:#191b87'>Lista de Procesadores </h1>
+  <a href="{% url 'procesador' %}">Carga de Procesadores</a>
+  <br>
+  
+  <form action="{% url 'buscaprocesador' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="modelo">
+    <input type="submit" value="Buscar">
+  </form>
+  <br>
+  
+  <ul>
+   {% for procesador in procesadores %}
+    <li> Modelo: {{ procesador.modelo}}, Stock: {{ procesador.stock }}</li>
+   {% endfor %}
+  </ul>
+  </div>
+  </section>
+
+
+
+{% endblock contenido %}

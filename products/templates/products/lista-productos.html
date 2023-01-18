@@ -1,0 +1,40 @@
+{% extends 'products/base.html'%}
+
+{%load static%}
+
+{% block titulo %} Lista de Productos {% endblock titulo %}
+
+  
+
+
+
+{% block contenido %}
+<body>
+
+<div id="contenedor">
+  <div id="central">
+      <div id="login">
+          <div>
+           <a href="{% url 'listaProcesador'%}">
+           <button type="btn-btn-primary" title="Procesadores" >
+             LISTA PROCESADORES
+           </button>
+           <a href="{% url 'listaPlaca'%}">
+           <button type="btn-btn-primary" title="Placas" >
+              LISTA PLACAS
+           </button>
+           <a href="{% url 'listaRam'%}">
+           <button type="btn-btn-primary" title="RAM" >
+              LISTA RAM
+           </button>
+          </div>
+       </div>
+   </div>
+</div>
+
+ 
+</body>
+
+{% endblock contenido %}
+{% block listar %}
+{% endblock listar %}

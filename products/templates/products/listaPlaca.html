@@ -1,0 +1,27 @@
+{% extends "products/base.html" %}
+{% block titulo %} Lista de Productos {% endblock titulo %}
+{% block contenido %}
+
+<section>
+  <div>
+  <h1 style='color:#191b87'>Lista de Placas Madres </h1>
+  <a href="{% url 'placa' %}">Carga de Placas Madres</a>
+  <br>
+
+  <form action="{% url 'buscaplaca' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="modelo">
+    <input type="submit" value="Buscar">
+  </form>
+  <br>
+
+  <ul>
+    {% for placa in placas_madres %}
+      <li> Modelo: {{ placa.modelo}}, Stock: {{placa.stock}}</li>
+    {% endfor %}
+  </ul>
+  </div>
+  </section>
+
+
+{% endblock contenido %}

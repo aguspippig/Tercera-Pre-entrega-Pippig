@@ -1,0 +1,26 @@
+{% extends "products/base.html" %}
+{% block titulo %} Lista de Productos {% endblock titulo %}
+{% block contenido %}
+
+
+<section>
+  <div>
+    <h1 style='color:#191b87'>Lista de RAM</h1>
+    <a href="{% url 'ram' %}" >Carga De RAM</a>
+
+
+ <form action="{% url 'buscaram' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="modelo">
+      <input type="submit" value="Buscar">
+</form>
+<br>
+<ul> 
+  {% for ram in ram %}
+    <li class="list-group-item"> Modelo: {{ ram.modelo}}, Stock: {{ ram.stock }} </li>
+  {% endfor %}
+</ul>
+</div>
+</section>
+
+{% endblock contenido %}
